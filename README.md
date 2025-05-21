@@ -2,7 +2,7 @@
 
 <div align='center'>
 
-![WhatsApp API](https://files.catbox.moe/ibz8hp.jpg)
+![WhatsApp API](https://files.catbox.moe/2vu0bo.jpg)
 
 </div>
 
@@ -30,17 +30,17 @@ Here is an example you can use: [example.ts](Example/example.ts) or here is a tu
 
 Use the stable version:
 ```bash
-npm install @slnckyami/V3-Baileys
+npm install @MulzyCoresiX/X-Baileys
 ```
 
 Use the edge version (no guarantee of stability, but latest fixes + features)
 ```bash
-yarn add @slnckyami/V3-Baileys@latest
+yarn add @MulzyCoresiX/X-Baileys@latest
 ```
 
 Then import your code using:
 ```javascript
-const { default: makeWASocket } = require("@slnckyami/V3-Baileys")
+const { default: makeWASocket } = require("@MulzyCoresiX/X-Baileys")
 ```
 # Links
 
@@ -198,7 +198,7 @@ WhatsApp provides a multi-device API that allows Baileys to be authenticated as 
 > You can customize browser name if you connect with **QR-CODE**, with `Browser` constant, we have some browsers config, **see [here](https://baileys.whiskeysockets.io/types/BrowsersMap.html)**
 
 ```javascript
-const { default: makeWASocket } = require("@slnckyami/V3-Baileys")
+const { default: makeWASocket } = require("@MulzyCoresiX/X-Baileys")
 
 
 const sock = makeWASocket({
@@ -219,7 +219,7 @@ If the connection is successful, you will see a QR code printed on your terminal
 The phone number can't have `+` or `()` or `-`, only numbers, you must provide country code
 
 ```javascript
-const { default: makeWASocket } = require("@slnckyami/V3-Baileys")
+const { default: makeWASocket } = require("@MulzyCoresiX/X-Baileys")
 
 const sock = makeWASocket({
     // can provide additional config here
@@ -320,8 +320,8 @@ You obviously don't want to keep scanning the QR code every time you want to con
 
 So, you can load the credentials to log back in:
 ```javascript
-const makeWASocket = require("@slnckyami/V3-Baileys").default;
-const { useMultiFileAuthState } = require("@slnckyami/V3-Baileys");
+const makeWASocket = require("@MulzyCoresiX/X-Baileys").default;
+const { useMultiFileAuthState } = require("@MulzyCoresiX/X-Baileys");
 
 // enable authDebug to display session logs
 const { state, saveCreds } = await useMultiFileAuthState('auth_info_baileys', { authDebug: true })
@@ -336,8 +336,8 @@ sock.ev.on('creds.update', saveCreds)
 
 You can sync cache on MultiFileAuthState
 ```javascript
-const makeWASocket = require("@slnckyami/V3-Baileys").default;
-const { useMultiFileAuthState, makeCacheableSignalKeyStore } = require("@slnckyami/V3-Baileys");
+const makeWASocket = require("@MulzyCoresiX/X-Baileys").default;
+const { useMultiFileAuthState, makeCacheableSignalKeyStore } = require("@MulzyCoresiX/X-Baileys");
 
 // enable syncCache then fetch cache
 const { state, saveCreds, cache: authCache } = await useMultiFileAuthState('auth_info_baileys', { syncCache: true })
@@ -386,8 +386,8 @@ sock.ev.on('messages.upsert', ({ messages }) => {
 > This example includes basic auth storage too
 
 ```javascript
-const makeWASocket = require("@slnckyami/V3-Baileys").default;
-const { DisconnectReason, useMultiFileAuthState } = require("@slnckyami/V3-Baileys");
+const makeWASocket = require("@MulzyCoresiX/X-Baileys").default;
+const { DisconnectReason, useMultiFileAuthState } = require("@MulzyCoresiX/X-Baileys");
 const Boom = require('@hapi/boom');
 
 async function connectToWhatsApp () {
@@ -469,8 +469,8 @@ sock.ev.on('messages.update', event => {
 It can be used as follows:
 
 ```javascript
-const makeWASocket = require("@slnckyami/V3-Baileys").default;
-const { makeInMemoryStore } = require("@slnckyami/V3-Baileys");
+const makeWASocket = require("@MulzyCoresiX/X-Baileys").default;
+const { makeInMemoryStore } = require("@MulzyCoresiX/X-Baileys");
 // the store maintains the data of the WA connection in memory
 // can be written out to a file & read from it
 const store = makeInMemoryStore({ })
@@ -1231,7 +1231,7 @@ await sock.sendMessage(jid, {
 If you want to save the media you received
 ```javascript
 const { createWriteStream } = require('fs');
-const { downloadMediaMessage, getContentType } = require("@slnckyami/V3-Baileys");
+const { downloadMediaMessage, getContentType } = require("@MulzyCoresiX/X-Baileys");
 
 sock.ev.on('messages.upsert', async ({ [m] }) => {
     if (!m.message) return // if there is no text or media message
